@@ -1,0 +1,590 @@
+* {
+  font-family: "Figtree", sans-serif;
+}
+
+body {
+  background-color: #00385a;
+  background-size: cover;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2vh auto;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  max-width: 850px;
+  max-height: 830px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5vh;
+}
+
+hr {
+  border: 0;
+  background-color: #e9e7e7;
+  width: 90%;
+  height: 2px;
+  border-radius: 40px;
+  margin: 0 auto;
+  margin-bottom: 1.5vh;
+}
+
+select:not(.dateinput) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid #dddddd;
+  background: #eeeeee;
+  padding: 10px;
+}
+
+input:not(.dateinput),
+/* select, */
+textarea,
+.bgselect {
+  width: 85%;
+  height: 8%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+  border-bottom: 2px solid #c5c5c5;
+  background-color: #e9e7e7;
+}
+
+select:not(.dateinput),
+::picker(select) {
+  appearance: base-select;
+}
+
+::picker(select) {
+  border: none;
+}
+
+input:not(.dateinput)::placeholder,
+textarea::placeholder {
+  font-size: 1.5vh;
+  color: #c5c5c5;
+  font-style: italic;
+}
+
+label {
+  width: 85%;
+}
+
+.datepick-cont {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.datepicker {
+  box-sizing: border-box;
+  position: absolute;
+  top: 100%;
+  width: min(90vw, 320px);
+
+  z-index: 100;
+  margin-top: 2px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #00385a;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.datepicker button {
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.days,
+.dates {
+  display: grid;
+  grid-template-columns: repeat(7, 32px);
+  gap: 10px;
+  margin-block: min(10px, calc(2vw - 15px));
+}
+
+.days span {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.dates button {
+  aspect-ratio: 1;
+}
+
+.dates button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.dates button:hover {
+  background: #c5c5c5;
+}
+
+.dates button.today {
+  background: #6a90b483;
+  color: #00385a;
+  pointer-events: none;
+  user-select: none;
+}
+
+.dates button.selected-date {
+  background: #00385a;
+  color: #fff;
+}
+
+.datepick-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9e7e7;
+}
+
+.datepick-header select,
+.datepick-header input {
+  font-size: 14px;
+  border: 1px solid #e9e7e7;
+}
+
+.datepick-header input {
+  max-width: 64px;
+}
+
+.datepick-header button {
+  color: slategray;
+}
+
+.datepick-header button:hover {
+  color: #00385a;
+}
+
+#jampel {
+  display: inline-grid;
+  grid-template-columns: repeat(3, clamp(85px, 9.5vw, 128px));
+  gap: clamp(3px, 0.66vw, 10px);
+  box-sizing: border-box;
+}
+
+#jampel button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+  border-bottom: 2px solid #c5c5c5;
+  background-color: #e9e7e7;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.3s;
+  aspect-ratio: 2.2;
+}
+
+#jampel button:hover {
+  background-color: #c5c5c5;
+}
+
+#jampel button.toggled {
+  background-color: #6a90b483;
+}
+
+button.pageB {
+  all: unset;
+  border-radius: 16px;
+  border: none;
+  border-bottom: 2px solid #c5c5c5;
+  background-color: #e9e7e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button.pageB:hover {
+  background-color: #c5c5c5;
+}
+
+button.pageB:active {
+  transform: translateY(2vh);
+}
+
+option:not(.dateinput):first-of-type {
+  border-radius: 8px 8px 0 0;
+}
+
+option:not(.dateinput):last-of-type {
+  border-radius: 0 0 8px 8px;
+}
+
+::picker(select) {
+  border-radius: 8px;
+}
+
+option:not(.dateinput):not(option:last-of-type) {
+  border-bottom: none;
+}
+
+option:not(.dateinput):nth-of-type(odd) {
+  background: white;
+}
+
+option:not(.dateinput):hover,
+option:not(.dateinput):focus {
+  background: #9d9d9d;
+}
+
+option:not(.dateinput) .icon {
+  font-size: 1.6rem;
+  text-box: trim-both cap alphabetic;
+}
+
+select:not(.dateinput) {
+  background-color: transparent;
+  border: 0;
+  width: 50%;
+  height: 100%;
+}
+
+select:not(.dateinput)::picker-icon {
+  visibility: hidden;
+}
+
+.button-lab {
+  all: unset;
+  max-width: 183px;
+  min-width: 80px;
+  border-radius: 20px;
+  border: none;
+  border-bottom: 2px solid #c5c5c5;
+  background-color: #e9e7e7;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.3s;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.lab-search, .lab-cart {
+  all: unset;
+  border-radius: 16px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  max-width: 85px;
+  min-width: 69px;
+  height: 9vw;
+  min-height: 65px;
+  max-height: 80px;
+  /* margin-right: 8%; */
+  background-color: #00385a;
+}
+
+.lab-search{
+  border-bottom: 2px solid #00253b;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lab-search:hover {
+  background: #e9e7e7;
+  border-bottom: 2px solid #c5c5c5;
+}
+
+.button-lab-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50%;
+}
+
+.button-lab:hover {
+  background: #c5c5c5;
+}
+
+.dLabel {
+  background-color: #c76b6b;
+  padding: 5px;
+  height: 30px;
+  position: relative;
+  margin-bottom: -85%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin-right: -70%;
+  align-items: center;
+  /* background: transparent; */
+}
+
+.labLabel {
+  color: #fff;
+}
+
+.lab-item-button {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+  border-bottom: 2px solid #c5c5c5;
+  background-color: #e9e7e7;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: 0.3s;
+}
+
+.lab-item-button:hover {
+  background: #c5c5c5;
+}
+
+.cart-item {
+  aspect-ratio: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+  border-bottom: 2px solid #c5c5c5;
+  background-color: #e9e7e7;
+  font-size: 0.7rem;
+  transition: 0.3s;
+}
+
+.popup-lab-cont {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.26);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-lab {
+  background: #fff;
+  aspect-ratio: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: none;
+  background-color: #e9e7e7;
+}
+
+.popup-text {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.popup-lab {
+  width: 40%;
+  min-width: 315px;
+  max-width: 350px;
+  height: 20%;
+  min-height: 360px;
+  max-height: 400px;
+}
+
+.popup-button, .cart-button {
+  all: unset;
+  max-width: 50px;
+  min-width: 30px;
+  border-radius: 20px;
+  border: none;
+  border-bottom: 2px solid #6d6d6d;
+  background-color: #c1c1c1;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.3s;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+.popup-button:hover, .cart-button:hover {
+  background-color: #6d6d6d;
+}
+
+.quant-cont {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-lab-img-cont {
+  width: 95%;
+  max-height: 65%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lab-item-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus:not(#kelompok)[type="number"] {
+  outline: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+input.plhTrans::placeholder {
+  color: transparent;
+}
+
+.cart-img {
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  background-color: #c1c1c1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-data {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.2%;
+}
+
+.obj-desc {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-left: 10%;
+}
+
+.obj-desc-text {
+  margin: 0;
+}
+
+.check-cart{
+  margin-right: 5%;
+}
+
+.check-cart input {
+  display: none;
+}
+.check-cart label {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #929292;
+  border-radius: 16%;
+  cursor: pointer;
+}
+
+.check-shape{
+  display: none;
+}
+
+.check-cart input:checked + label {
+  background: #6750A4;
+  fill: #fff;
+}
+
+.check-cart input:checked ~ .check-icon .check-shape{
+  display: block;
+}
+
+.cart-quant-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
