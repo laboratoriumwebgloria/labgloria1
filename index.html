@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Shop</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="src/imgs/logoSMA.png"
+        alt=""
+        style="
+          filter: brightness(10000%);
+          width: 18vw;
+          min-width: 200px;
+          margin: 0;
+        "
+      />
+    </header>
+    <div id="page1" class="page">
+      <div class="container" style="background-color: #6a90b4">
+        <h1 style="color: #ffffff">
+          BON PEMINJAMAN ALAT DAN <br />
+          BAHAN LABORATORIUM
+        </h1>
+        <hr />
+        <div class="container" style="background-color: #ffffff">
+          <label for="name" style="color: #00385a"
+            ><h1 style="text-align: left">
+              Nama Lengkap <span style="color: red">*</span>
+            </h1></label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="ex. Livia Brat"
+            required
+            onchange="fill(id)"
+          />
+          <label for="kelas" style="color: #00385a"
+            ><h1 style="text-align: left">
+              Kelas <span style="color: red">*</span>
+            </h1></label
+          >
+          <div class="bgselect" id="kelas" onclick="selectElem(id)">
+            <select name="kelas" id="kelas-select" required onchange="fill(id)">
+              <option value="" disabled selected hidden style="display: none">
+                Please Select
+              </option>
+              <option value="X1">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> X1
+              </option>
+              <option value="X2">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> X2
+              </option>
+              <option value="X3">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> X3
+              </option>
+              <option value="X4">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> X4
+              </option>
+              <option value="X5">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> X5
+              </option>
+              <option value="X6">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> X6
+              </option>
+              <option value="XINS">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XINS
+              </option>
+              <option value="XITE1">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XITE1
+              </option>
+              <option value="XITE2">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XITE2
+              </option>
+              <option value="XIIF">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XIIF
+              </option>
+              <option value="XIITE1">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XIITE1
+              </option>
+              <option value="XIITE2">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XIITE2
+              </option>
+              <option value="XIINS">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XIINS
+              </option>
+              <option value="XIIAH">
+                <span aria-hidden="true" class="icon">🧑‍🎓</span> XIIAH
+              </option>
+            </select>
+          </div>
+          <label for="kelompok" style="color: #00385a"
+            ><h1 style="text-align: left">
+              Kelompok <span style="color: red">*</span>
+            </h1></label
+          >
+          <input
+            type="number"
+            id="kelompok"
+            name="kelompok"
+            placeholder="ex. 1"
+            style="width: 40%; left: -22.65%; position: relative"
+            required
+            onchange="fill(id)"
+          />
+          <div
+            style="
+              width: 100%;
+              position: relative;
+              height: 25%;
+              min-height: 150px;
+              display: flex;
+              justify-content: end;
+              align-items: center;
+            "
+          >
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-right: 8%;
+              "
+              onclick="nextPage(1)"
+              class="pageB"
+            >
+              <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+                <path
+                  d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page2" class="page" style="display: none">
+      <div class="container" style="background-color: #ffffff">
+        <label for="unit-lab" style="color: #00385a"
+          ><h1 style="text-align: left">
+            Unit Lab <span style="color: red">*</span>
+          </h1></label
+        >
+        <div class="bgselect" id="unit-lab" onclick="selectElem(id)">
+          <select
+            name="unit-lab"
+            id="unit-lab-select"
+            required
+            onchange="fill(id)"
+          >
+            <option value="" disabled selected hidden style="display: none">
+              Please Select
+            </option>
+            <option value="kelas">Kelas</option>
+            <option value="bio">Lab Biologi</option>
+            <option value="fis">Lab Fisika</option>
+            <option value="kim">Lab Kimia</option>
+          </select>
+        </div>
+        <label for="guru" style="color: #00385a"
+          ><h1 style="text-align: left">
+            Guru Mata Pelajaran <span style="color: red">*</span>
+          </h1></label
+        >
+        <div class="bgselect" id="guru" onclick="selectElem(id)">
+          <select
+            name="guru"
+            id="guru-select"
+            required
+            onchange="fill(id)"
+            disabled
+          >
+            <option value="" disabled selected hidden style="display: none">
+              Please Select
+            </option>
+            <optgroup label="" id="bio" class="guruselect" disabled hidden>
+              <option value="christine">Bu Christine Apriyani</option>
+              <option value="anita">Bu Anita Amelia</option>
+            </optgroup>
+            <optgroup label="" id="fis" class="guruselect" disabled hidden>
+              <option value="agatha">Bu Agatha Christie</option>
+              <option value="lovina">Bu Lovina Wijanyati</option>
+              <option value="finanti">Bu Finanti Rahayu</option>
+            </optgroup>
+            <optgroup label="" id="kim" class="guruselect" disabled hidden>
+              <option value="leony">Bu Leony</option>
+              <option value="andhi">Pak Andhi Laksono</option>
+            </optgroup>
+          </select>
+        </div>
+        <label for="judul" style="color: #00385a"
+          ><h1 style="text-align: left">
+            Judul Praktikum <span style="color: red">*</span>
+          </h1></label
+        >
+        <textarea
+          type="text"
+          id="judul"
+          name="judul"
+          style="height: 20%; margin-bottom: 0"
+          placeholder="ex. Kim brat"
+          required
+          onchange="fill(id)"
+        ></textarea>
+        <div
+          style="
+            width: 100%;
+            position: relative;
+            height: 25%;
+            min-height: 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <button
+            style="
+              width: 10vw;
+              max-width: 85px;
+              min-width: 69px;
+              height: 9vw;
+              min-height: 65px;
+              max-height: 80px;
+              margin-left: 8%;
+            "
+            onclick="prevPage(2)"
+            class="pageB"
+          >
+            <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+              <path
+                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+              />
+            </svg>
+          </button>
+          <button
+            style="
+              width: 10vw;
+              max-width: 85px;
+              min-width: 69px;
+              height: 9vw;
+              min-height: 65px;
+              max-height: 80px;
+              margin-right: 8%;
+            "
+            onclick="nextPage(2)"
+            class="pageB"
+          >
+            <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+              <path
+                d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="page3" class="page" style="display: none">
+      <div
+        class="container"
+        style="background: transparent; justify-content: space-between"
+      >
+        <h1
+          style="
+            color: #ffffff;
+            font-size: 2.5rem;
+            position: relative;
+            top: -3%;
+          "
+        >
+          Tanggal
+        </h1>
+        <hr style="position: relative; top: -10%" />
+        <div class="datepick-cont" style="top: -15%">
+          <div class="datepicker">
+            <div class="datepick-header">
+              <button class="prev">Prev</button>
+              <div>
+                <select name="" id="" class="mo-input dateinput" onchange="changeDate()">
+                  <option value="Jan" class="dateinput">January</option>
+                  <option value="Feb" class="dateinput">February</option>
+                  <option value="Mar" class="dateinput">March</option>
+                  <option value="Apr" class="dateinput">April</option>
+                  <option value="May" class="dateinput">May</option>
+                  <option value="Jun" class="dateinput">Juny</option>
+                  <option value="Jul" class="dateinput">July</option>
+                  <option value="Aug" class="dateinput">Augustus</option>
+                  <option value="Sep" class="dateinput">September</option>
+                  <option value="Oct" class="dateinput">October</option>
+                  <option value="Nov" class="dateinput">November</option>
+                  <option value="Des" class="dateinput">December</option>
+                </select>
+                <input
+                  type="number"
+                  class="year-input dateinput"
+                  value="2025"
+                  onchange="changeDate()"
+                />
+              </div>
+              <button class="next">Next</button>
+            </div>
+            <div class="days">
+              <span>Su</span>
+              <span>Mo</span>
+              <span>Tu</span>
+              <span>We</span>
+              <span>Th</span>
+              <span>Fr</span>
+              <span>Sa</span>
+            </div>
+            <div class="dates"></div>
+          </div>
+        </div>
+        <div class="container" style="background-color: #ffffff; height: 60vh">
+          <h1
+            style="
+              color: #00385a;
+              font-size: 2.5rem;
+              position: relative;
+              top: 16%;
+            "
+          >
+            Jam Pelajaran
+          </h1>
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: relative;
+              top: 18%;
+            "
+          >
+            <div id="jampel" style="z-index: 50">
+              <button class="jp" id="jp1" onclick="jampelClick(id)">
+                07.40
+              </button>
+              <button class="jp" id="jp2" onclick="jampelClick(id)">
+                08.25
+              </button>
+              <button class="jp" id="jp3" onclick="jampelClick(id)">
+                09.10
+              </button>
+              <button class="jp" id="jp4" onclick="jampelClick(id)">
+                10.10
+              </button>
+              <button class="jp" id="jp5" onclick="jampelClick(id)">
+                10.55
+              </button>
+              <button class="jp" id="jp6" onclick="jampelClick(id)">
+                11.40
+              </button>
+              <button class="jp" id="jp7" onclick="jampelClick(id)">
+                13.00
+              </button>
+              <button class="jp" id="jp8" onclick="jampelClick(id)">
+                13.45
+              </button>
+              <button class="jp" id="jp9" onclick="jampelClick(id)">
+                14.30
+              </button>
+            </div>
+          </div>
+          <div
+            style="
+              width: 100%;
+              position: relative;
+              height: 25%;
+              min-height: 150px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-left: 8%;
+              "
+              onclick="prevPage(3)"
+              class="pageB"
+            >
+              <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </button>
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-right: 8%;
+              "
+              onclick="nextPage(3)"
+              class="pageB"
+            >
+              <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+                <path
+                  d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page4" class="page" style="display: none">
+      <div
+        class="container"
+        style="background: transparent; justify-content: space-between"
+      >
+        <h1
+          style="
+            color: #ffffff;
+            font-size: 2.5rem;
+            position: relative;
+            top: -3%;
+          "
+        >
+          Laboratorium yang Terpakai
+        </h1>
+        <hr style="position: relative; top: -9vh" />
+        <div
+          class="container"
+          style="background-color: #6a90b4; height: 65vh; justify-content: end"
+        >
+          <div
+            class="container"
+            style="background-color: #ffffff; height: 40vh;"
+          >
+            <div
+              style="
+                width: 100%;
+                position: relative;
+                top: -15.8vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(2, clamp(60px, 18vw, 183px));
+                  column-gap: clamp(60px, 8vw, 80px);
+                  row-gap: 2rem;
+                  position: relative;
+                  top: 8%;
+                "
+                id="labMenu"
+              >
+              </div>
+            </div>
+            <div
+            style="
+              width: 100%;
+              position: relative;
+              height: 25%;
+              min-height: 150px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              bottom: 53.25%;
+            "
+          >
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-left: 8%;
+              "
+              onclick="prevPage(4)"
+              class="pageB"
+            >
+              <svg
+                style="width: 1.2vw; min-width: 18px"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </button>
+            <button class="lab-search" onclick="searchPage()">
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                style="width: 1.2vw; min-width: 18px"
+                >
+                <path 
+                d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"
+                fill="#fff"/>
+              </svg>
+            </button>
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-right: 8%;
+              "
+              onclick="nextPage(4)"
+              class="pageB"
+            >
+              <svg
+                style="width: 1.2vw; min-width: 18px"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                />
+              </svg>
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page-cart" class="page" style="display: none">
+      <div class="container" style="background-color: #6a90b4">
+        <h1 style="color: #ffffff" id="cart-title">
+          BON PEMINJAMAN ALAT DAN <br />
+          BAHAN LABORATORIUM
+        </h1>
+        <hr />
+        <div class="container" style="background-color: #ffffff">
+          <div class="container" style="background:transparent; height: 60vh; overflow-x: hidden;">
+            <div style="background:transparent; display: grid; grid-template-columns:repeat(auto-fit, minmax(140px, 0.5fr)); width: 90%; height: 100%; margin-top: 10%; gap: 10px;" id="lab-button-cont"></div>
+          </div>
+          <div
+            style="
+              width: 100%;
+              position: relative;
+              height: 25%;
+              min-height: 150px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-left: 8%;
+              "
+              onclick="prevPage('cart', 'page4')"
+              class="pageB"
+            >
+              <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="popup-lab-cont" style="display: none;">
+        <div class="popup-lab">
+            <div style="
+              width: 95%;
+              max-height: 40%;
+              border-radius: 16px;
+              background-color: #C1C1C1;
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+             ">
+              <img src="src/imgs/logoSMA.png" alt="" srcset="" 
+              style="
+                height: 80%;
+                object-fit: contain;"
+                id="item-img">
+            </div>
+            <h1 id="item-nama" class="popup-text" style="margin-top: 10%;">Nama</h1>
+            <h1 id="item-id" class="popup-text" style="font-size: 1em; margin-top: 3%;">ID</h1>
+          <div class="quant-cont">
+            <button class="popup-button">
+              <svg  style="width: 1.2vw; min-width: 18px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320z"/></svg>
+            </button>
+            <input type="number" id="quant-text" class = 'plhTrans' value="0" style="text-align: center; font-size: 2.5vh; border: none;" onchange="changequant(this)" placeholder="bbitem">
+            <button class="popup-button">
+              <svg  style="width: 1.2vw; min-width: 18px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M352 128C352 110.3 337.7 96 320 96C302.3 96 288 110.3 288 128L288 288L128 288C110.3 288 96 302.3 96 320C96 337.7 110.3 352 128 352L288 352L288 512C288 529.7 302.3 544 320 544C337.7 544 352 529.7 352 512L352 352L512 352C529.7 352 544 337.7 544 320C544 302.3 529.7 288 512 288L352 288L352 128z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page5" class="page" style="display: none">
+      <div class="container" style="background-color: #6a90b4">
+        <h1 style="color: #ffffff">
+          CART
+        </h1>
+        <hr />
+        <div class="container" style="background-color: #ffffff">
+          <div class="container" style="background:transparent; height: 60vh; overflow-x: hidden;">
+            <div style="background:transparent; display: grid; grid-template-columns: minmax(auto, 100%); width: 90%; height: 100%; margin-top: 10%; gap: 10px;" id="cart-button-cont"></div>
+          </div>
+          <div
+            style="
+              width: 100%;
+              position: relative;
+              height: 25%;
+              min-height: 150px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-left: 8%;
+              "
+              onclick="prevPage(5)"
+              class="pageB"
+            >
+              <svg
+                style="width: 1.2vw; min-width: 18px"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </button>
+            <button class="lab-cart">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                style="width: 1.2vw; min-width: 18px"
+              >
+                <path
+                  d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z"
+                  fill="#fff"
+                />
+              </svg>
+            </button>
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-right: 8%;
+              "
+              onclick="nextPage(5)"
+              class="pageB"
+            >
+              <svg
+                style="width: 1.2vw; min-width: 18px"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  d="M247.1 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L179.2 256 41.9 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="page-search" class="page" style="display: none">
+      <div class="container" style="background-color: #6a90b4">
+        <h1 style="color: #ffffff">
+          SEARCH
+        </h1>
+        <hr />
+        <div class="container" style="background-color: #ffffff">
+          <div class="container" style="background:transparent; height: 60vh; overflow-x: hidden;">
+            <div style="background:transparent; display: grid; grid-template-columns:repeat(auto-fit, minmax(140px, 0.5fr)); width: 90%; height: 100%; margin-top: 10%; gap: 10px;" id="search-button-cont"></div>
+          </div>
+          <div
+            style="
+              width: 100%;
+              position: relative;
+              height: 25%;
+              min-height: 150px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-left: 8%;
+              "
+              onclick="prevPage('cart', 'page4')"
+              class="pageB"
+            >
+              <svg style="width: 1.2vw; min-width: 18px" viewBox="0 0 256 512">
+                <path
+                  d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                />
+              </svg>
+            </button>
+            <div
+            style="
+              flex-grow: 1;
+              height: 9vw;
+              min-height: 65px;
+              max-height: 80px;
+              margin-right: 8%;
+              margin-left: 3%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            ">
+            <button
+              style="
+                width: 10vw;
+                max-width: 85px;
+                min-width: 69px;
+                height: 9vw;
+                min-height: 65px;
+                max-height: 80px;
+                margin-left: 0;
+                border-radius: 50px;
+              "
+              onclick="prevPage('cart', 'page4')"
+              class="pageB"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                style="width: 1.5vw; min-width: 35px"
+                >
+                <path 
+                d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+              </svg>
+            </button>
+            <input 
+            type="text"
+            style="
+              flex-grow: 1;
+              margin-right: 0;
+              margin-left: 3%;
+              height: 100%;
+              border-radius: 50px;
+              font-size: 2.5vh;
+              text-indent: 1.5vh;
+            "
+            onchange="search(this.value)"
+            id="lab-search-bar">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+    <script  type="module" src="src/dbCon.js"></script>
+  </body>
+</html>
